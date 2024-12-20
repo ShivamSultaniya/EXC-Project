@@ -36,7 +36,6 @@ const sendMessage = async () => {
     chatOutput.scrollTop = chatOutput.scrollHeight;
 
     try {
-        // Call the generative AI API
         const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" + API_KEY, {
             method: "POST",
             headers: {
@@ -51,10 +50,8 @@ const sendMessage = async () => {
         console.log(data);
         const botMessage = "Gemini: " + data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't process that.";
 
-        // Remove thinking message
         thinkingMessage.remove();
 
-        // Display bot's response
         const botMessageElement = createChatMessage(botMessage, "incoming");
         chatOutput.appendChild(botMessageElement);
         chatOutput.scrollTop = chatOutput.scrollHeight;

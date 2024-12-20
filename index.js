@@ -41,15 +41,6 @@ document.getElementById('signInWithGoogle').addEventListener('click', () => {
         });
 });
 
-document.getElementById('logout').addEventListener('click', () => {
-    signOut(auth).then(() => {
-        // Sign-out successful.
-      }).catch((error) => {
-        // An error happened.
-      });
-      
-})
-
 onAuthStateChanged(auth, (user) => {
     const statusElement = document.getElementById('status');
     if (user) {
@@ -87,22 +78,5 @@ document.getElementById('login').addEventListener('click', () => {
       alert(`Error: ${error.message}`);
     });
 });
-
-// document.getElementById('logout').addEventListener('click', () => {
-//   signOut(auth).then(() => {
-//     alert('User logged out successfully!');
-//   }).catch((error) => {
-//     alert(`Error: ${error.message}`);
-//   });
-// });
-
-// onAuthStateChanged(auth, (user) => {
-//   const statusElement = document.getElementById('status');
-//   if (user) {
-//     statusElement.textContent = `Status: Logged in as ${user.email}`;
-//   } else {
-//     statusElement.textContent = 'Status: Not logged in';
-//   }
-// });
 
 
